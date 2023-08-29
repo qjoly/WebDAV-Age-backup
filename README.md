@@ -6,6 +6,17 @@
 
 ![NixOS](https://img.shields.io/badge/NixOS-48B9C7?style=for-the-badge&logo=NixOS&logoColor=white)
 
+## Features
+
+- [x] Backup to WebDav
+- [x] Encrypt backups
+- [x] NixOS compatible
+- [x] Can notify you when a backup is done/failed
+- [x] Can run script before and after backup
+- [ ] Prune old backups
+- [ ] Backup to multiple WebDav providers
+
+
 ## How it works
 
 I use kDrive from Infomaniak to store my backups, to send them I use RClone with a WebDav backend *(WebDav is the only way to send backups to kDrive)*. Since I don’t own the server where I store my backups, I encrypt them using age before sending them.
@@ -48,6 +59,21 @@ You can find your kDrive ID in the kDrive web interface:
 If 2FA is enabled on your Infomaniak account, you need to create an app password and use it instead of using your account password. You can create an app password in the Infomaniak web interface: [here](https://manager.infomaniak.com/v3/681270/ng/profile/user/connection-history/application-password)
 
 ## Usage
+
+You first need to generate a key to encrypt your backups using age. Store this key in a safe place, you will need it to decrypt your backups.
+
+```bash
+age-keygen -o age_key.txt
+```
+
+Open this file (`cat age_key.txt`) and copy the “public key” part, you will need it to encrypt your backups.
+
+Edit the backup.sh file and replace theses lines with your own values:
+
+```bash
+age_public_key="age1..." # your public key goes here
+local_backup_dir="dir1 dir2" # the directories you want to backup
+```
 
 ```bash
 ./backup.sh

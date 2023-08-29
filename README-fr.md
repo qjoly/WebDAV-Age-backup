@@ -6,6 +6,16 @@
 
 ![NixOS](https://img.shields.io/badge/NixOS-48B9C7?style=for-the-badge&logo=NixOS&logoColor=white)
 
+## Fonctionnalités
+
+- [x] Sauvegarde vers WebDav
+- [x] Chiffrement des sauvegardes
+- [x] Compatible avec NixOS
+- [x] Peut vous notifier lorsque la sauvegarde est terminée/échouée
+- [x] Peut exécuter un script avant et après la sauvegarde
+- [ ] Supprimer les anciennes sauvegardes
+- [ ] Sauvegarde vers plusieurs fournisseurs WebDav
+
 ## Comment ça fonctionne
 
 J’utilise kDrive d’Infomaniak pour stocker mes sauvegardes, pour les envoyer j’utilise RClone avec un backend WebDav *(WebDav est le seul moyen d’envoyer des sauvegardes vers kDrive)*. Comme je ne possède pas le serveur où je stocke mes sauvegardes, je les chiffre en utilisant age avant de les envoyer.
@@ -40,6 +50,21 @@ Vous pouvez trouver votre identifiant kDrive dans l’interface web de kDrive :
 Si l’authentification à deux facteurs (2FA) est activée sur votre compte Infomaniak, vous devez créer un mot de passe d’application et l’utiliser à la place de votre mot de passe de compte. Vous pouvez créer un mot de passe d’application dans l’interface web d’Infomaniak : [ici](https://manager.infomaniak.com/v3/681270/ng/profile/user/connection-history/application-password)
 
 ## Usage
+
+Vous devez d’abord générer une clé pour chiffrer vos sauvegardes en utilisant age. Stockez cette clé dans un endroit sûr, vous en aurez besoin pour déchiffrer vos sauvegardes.
+
+```bash
+age-keygen -o age_key.txt
+```
+
+Ouvrez ce fichier (`cat age_key.txt`) et copiez la partie “clé publique”, vous en aurez besoin pour chiffrer vos sauvegardes.
+
+Modifiez le fichier backup.sh et remplacez ces lignes par vos propres valeurs :
+
+```bash
+age_public_key="age1..." # your public key goes here
+local_backup_dir="dir1 dir2" # the directories you want to backup
+```
 
 ```bash
 ./backup.sh
