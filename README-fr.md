@@ -44,3 +44,7 @@ Si l’authentification à deux facteurs (2FA) est activée sur votre compte Inf
 ```bash
 ./backup.sh
 ```
+
+## Inspiration
+
+Ce projet est inspiré du [Backup-Script](https://github.com/PAPAMICA/Backup-Script) de [PAPAMICA](https://twitter.com/PAPAMICA__), merci à lui pour son travail.

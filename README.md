@@ -52,3 +52,7 @@ If 2FA is enabled on your Infomaniak account, you need to create an app password
 ```bash
 ./backup.sh
 ```
+
+## Inspiration
+
+This project is inspired by [Backup-Script](https://github.com/PAPAMICA/Backup-Script) by [PAPAMICA](https://twitter.com/PAPAMICA__), thanks to him for his work.
