@@ -1,6 +1,12 @@
 #!/bin/bash
 
 # ------
+# Purpose: Backup script that encrypts and sends files to kDrive
+# Author: Quentin Joly
+# Script Name: non-nix-backup.sh
+# ------
+
+# ------
 rclone_config_file="$HOME/.config/rclone/rclone.conf"                           # Path to your rclone configuration file
 # ------
 
