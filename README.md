@@ -43,7 +43,7 @@ rclone config create kDrive webdav url "https://YOUR_KDRIVE_ID.connect.kdrive.in
 
 You can find your kDrive ID in the kDrive web interface:
 
-![Get kDrive ID](img/get_kdrive_id.png)
+![Get kDrive ID](https://github.com/QJoly/WebDAV-Age-backup/blob/main/img/get_kdrive_id.png?raw=true)
 
 If 2FA is enabled on your Infomaniak account, you need to create an app password and use it instead of using your account password. You can create an app password in the Infomaniak web interface: [here](https://manager.infomaniak.com/v3/681270/ng/profile/user/connection-history/application-password)
 
