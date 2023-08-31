@@ -80,7 +80,7 @@ rclone copy --progress $age_temp_file $rclone_conf_name:$webdav_directory_path
 
 if [ $? -eq 0 ] 
 then 
-  echo "✅ Successfully sended archive to kDrive" 
+  echo "✅ Successfully sended archive to $rclone_conf_name" 
 else 
   echo "❌ Could not send file"  
   sh -c "$script_to_execute_on_fail"
